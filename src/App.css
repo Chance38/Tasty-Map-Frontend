@@ -1,0 +1,77 @@
+/* 讓整個頁面以 column 方式排列：Header (上) + Main (中) + Footer (下) */
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 撐滿整個視窗 */
+    width: 100%;
+  }
+  
+  /* Header 預設全寬，可視需要再加自己的樣式 */
+  header {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  
+  /* 中間內容 (Main) 佔滿剩餘空間，並做左右並排 */
+  .main-content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden; /* 若不要出現捲軸可用這個，或視需求調整 */
+  }
+  
+  /* 左側餐廳清單：30%寬度 */
+  .restaurant-list {
+    width: 30%;
+    overflow-y: auto;       /* 內容多時可滾動 */
+    border-right: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+  
+  /* 右側地圖：70%寬度 */
+  .restaurant-map {
+    width: 70%;
+    box-sizing: border-box;
+    position: relative; /* 可視需要 */
+    display: flex;      /* 讓內部地圖 div 能用 flex 撐滿 */
+    flex-direction: column;
+  }
+  
+  /* 讓地圖 div 能真正撐滿父層 */
+  .map-container {
+    flex: 1;
+    background: #eee; /* 只是用來測試可見度，可移除 */
+  }
+  
+  /* Footer 在最底 */
+  .footer {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 保留你的 GitHub icon 樣式 */
+  .footer a {
+    color: white;
+    margin-left: 10px;
+    font-size: 18px;
+  }
+  
+  .github-icon {
+    transition: color 0.3s;
+  }
+  
+  .github-icon:hover {
+    color: #cccccc;
+  }
+  
